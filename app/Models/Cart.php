@@ -36,6 +36,7 @@ class Cart extends Model
     {
         $cartProducts = DB::table('carts as c')
                 ->select(
+                        'c.id',
                         'c.product_id',
                         'p.name',
                         'c.quantity',

@@ -30,6 +30,7 @@
             *Maybe you need wait some seconds in order to step a) above finish.
         c) vendor/bin/sail artisan migrate
         d) vendor/bin/sail artisan db:seed
+        e) vendor/bin/sail artisan config:cache
     - 4) Go to browser (http://localhost) 
         Should see the message in the body
             eCommerce API

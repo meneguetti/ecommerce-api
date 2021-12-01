@@ -17,19 +17,19 @@ class UserController extends Controller
     public function register(Request $request)
     {
         $rules = [
-            'fullname'     => 'required',
+            'fullname' => 'required',
             'email'    => 'required',
             'password' => 'required',
         ];
 
         if (Validator::make($request->all(), $rules)->passes()) {
-            
+
             $user = User::where('email', $request->get('email'))->first();
-            
-            if($user){
+
+            if ($user) {
                 return ['success' => false, 'message' => 'Email already exists!'];
             }
-            
+
             $user = User::create([
                         'name'     => $request->get('fullname'),
                         'email'    => $request->get('email'),
@@ -74,11 +74,15 @@ class UserController extends Controller
 
     public function logout()
     {
-        PersonalAccessToken::findToken(str_ireplace('Bearer ', '', request()->header('Authorization')))->delete();
+        $token = PersonalAccessToken::findToken(str_ireplace('Bearer ', '', request()->header('Authorization')));
 
-        Auth::guard('web')->logout();
+        if ($token) {
+            $token->delete();
+            Auth::guard('web')->logout();
+            return ['message' => 'You are now logged out!', 'success' => true];
+        }
 
-        return ['message' => 'You are now logged out!'];
+        return ['success' => false];
     }
 
 }
