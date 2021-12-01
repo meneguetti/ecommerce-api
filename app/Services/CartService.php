@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Mail\OrderPurchased;
 use App\Models\Cart;
 use Exception;
 use Illuminate\Support\Arr;
