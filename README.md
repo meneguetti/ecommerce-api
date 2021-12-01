@@ -64,20 +64,20 @@
 
 - API
     - GUEST
-        - POST /register
+        - **POST /register**
             - fullname
             - email
             - password
-        - POST /login
+        - **POST /login**
             - email
             - password
-        - GET /products
+        - **GET /products**
     - USER (logged in)
-        - POST /cart/products 
+        - **POST /cart/products**
             - product_id
-        - DELETE /cart/products/{product_id}
-        - GET /cart/products
-        - POST /cart/checkout
+        - **DELETE /cart/products/{product_id}**
+        - **GET /cart/products**
+        - **POST /cart/checkout**
             - checkout: true
     
     
