@@ -45,3 +45,23 @@
             vendor/bin/sail test
     6) To stop all services
         vendor/bin/sail down
+
+- API
+    - GUEST
+        - POST /register
+            - fullname
+            - email
+            - password
+        - POST /login
+            - email
+            - password
+        - GET /products
+    - USER (logged in)
+        - POST /cart/products 
+            - product_id
+        - DELETE /cart/products/{product_id}
+        - GET /cart/products
+        - POST /cart/checkout
+            - checkout: true
+    
+    
