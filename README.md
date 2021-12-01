@@ -5,16 +5,16 @@
     - Sanctum
 
 - Installing
-    - 1) It requires docker, run the following multiple lines command:
+    1) It requires docker, run the following multiple lines command:
         docker run --rm \
             -v $(pwd):/opt \
             -w /opt \
             laravelsail/php80-composer:latest \
             bash -c "composer require laravel/sail --dev"
-    - 2) In the project root folder
+    2) In the project root folder
         cp .env.example .env
-    - 3) Execute
-        a) vendor/bin/sail up -d
+    3) Execute
+        1) vendor/bin/sail up -d
             *This process takes some time.
             *You may need to stop some services to avoid conflict with ports
                 For instance:
@@ -26,15 +26,15 @@
                         - vendor/bin/sail down
                         - docker-compose down
                         - vendor/bin/sail up -d
-        b) vendor/bin/sail artisan db:create
+        2) vendor/bin/sail artisan db:create
             *Maybe you need wait some seconds in order to step a) above finish.
-        c) vendor/bin/sail artisan migrate
-        d) vendor/bin/sail artisan db:seed
-        e) vendor/bin/sail artisan config:cache
-    - 4) Go to browser (http://localhost) 
+        3) vendor/bin/sail artisan migrate
+        4) vendor/bin/sail artisan db:seed
+        5) vendor/bin/sail artisan config:cache
+    4) Go to browser (http://localhost) 
         Should see the message in the body
             eCommerce API
-    - 5) Perform automated testing (PHPUnit) - Integration Test
+    5) Perform automated testing (PHPUnit) - Integration Test
             vendor/bin/sail test
-    - 6) To stop all services
+    6) To stop all services
         vendor/bin/sail down
