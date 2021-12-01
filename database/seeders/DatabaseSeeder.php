@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now()->format('Y-m-d h:i:s')
             ],
             [
-                'name'      => 'Melon(unit ~750g)',
+                'name'      => 'Melon (unit ~750g)',
                 'price'     => 6.5,
                 'stock'     => 400,
                 'thumbnail' => 'melon.png',

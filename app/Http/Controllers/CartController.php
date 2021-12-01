@@ -2,21 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\CartService;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
 
-    public function get(Request $request)
+    public function getProducts()
     {
-        return (new CartService)->get();
+        return (new Cart)->getProducts();
     }
 
     public function saveProduct(Request $request)
     {
-
-        return $request->all();
+        return (new Cart)->saveProduct($request->all());
     }
 
 }
