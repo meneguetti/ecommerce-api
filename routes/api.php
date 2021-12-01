@@ -28,7 +28,7 @@ Route::get('/products', [ProductController::class, 'getAll']);
 
 // USER (logged in)
 Route::middleware('auth:sanctum')->post('cart/products', [CartController::class, 'saveProduct']);
-Route::middleware('auth:sanctum')->delete('cart/products/{product_id}', [CartController::class, 'deleteProduct']);
+Route::middleware('auth:sanctum')->delete('cart/products/{product_id}', [CartController::class, 'decreaseProduct']);
 Route::middleware('auth:sanctum')->get('cart/products', [CartController::class, 'getProducts']);
 Route::middleware('auth:sanctum')->post('cart/checkout', [CartController::class, 'checkout']);
 Route::post('/auth/logout', [UserController::class, 'logout']);

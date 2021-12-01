@@ -25,8 +25,7 @@ class AddUniqueToCartsTable extends Migration
      */
     public function down()
     {
-        Schema::table('carts', function (Blueprint $table) {
-            $table->dropUnique('carts_product_user_unique');
-        });
+        
     }
+
 }

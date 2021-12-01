@@ -15,7 +15,12 @@ class CartController extends Controller
 
     public function saveProduct(Request $request)
     {
-        return (new Cart)->saveProduct($request->all());
+        return (new Cart)->saveProduct($request->get('product_id'));
+    }
+
+    public function decreaseProduct(Request $request, int $productId)
+    {
+        return (new Cart)->decreaseProduct($productId);
     }
 
 }

@@ -19,10 +19,10 @@ class Cart extends Model
         'quantity',
     ];
 
-    public function saveProduct($data)
+    public function saveProduct($productId)
     {
         $cartProduct = $this->firstOrNew([
-            'product_id' => $data['product_id'],
+            'product_id' => $productId,
             'user_id'    => auth()->user()->id
         ]);
 
@@ -59,6 +59,22 @@ class Cart extends Model
             'total_quantity' => $totalQuantity,
             'products'       => $cartProducts
         ];
+    }
+
+    public function decreaseProduct($productId)
+    {
+        $product = self::where('user_id', auth()->user()->id)
+                ->where('product_id', $productId)
+                ->first();
+
+        if ($product->quantity > 1) {
+            $product->quantity--;
+            $product = $product->save();
+        } else {
+            $product = $product->delete();
+        }
+
+        return $product;
     }
 
 }
